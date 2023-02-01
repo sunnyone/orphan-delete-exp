@@ -1,0 +1,1 @@
+SELECT id FROM child WHERE parent_id = 50 AND id NOT IN (SELECT child_id FROM pointer WHERE parent_id = 50);

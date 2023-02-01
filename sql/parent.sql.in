@@ -1,0 +1,2 @@
+INSERT INTO parent(id) VALUES 
+    (%ID%);

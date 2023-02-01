@@ -1,0 +1,46 @@
+version: '3'
+
+volumes:
+  mysql57-db-volume:
+  mysql80-db-volume:
+  postgres15-db-volume:
+
+services:
+  mysql57:
+    image: mysql:5.7.41
+    environment:
+      MYSQL_DATABASE: exp
+      MYSQL_USER: exp
+      MYSQL_PASSWORD: exp
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    volumes:
+#      - mysql57-db-volume:/var/lib/mysql
+       - /home/work/db/mysql57:/var/lib/mysql
+    ports:
+      - 13306:3306
+
+  mysql80:
+    image: mysql:8.0.32
+    environment:
+      MYSQL_DATABASE: exp
+      MYSQL_USER: exp
+      MYSQL_PASSWORD: exp
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    volumes:
+#     - mysql80-db-volume:/var/lib/mysql
+      - /home/work/db/mysql80:/var/lib/mysql
+    ports:
+      - 23306:3306
+
+  postgres15:
+    image: postgres:15.1
+    environment:
+      POSTGRES_DB: exp
+      POSTGRES_USER: exp
+      POSTGRES_PASSWORD: exp
+      POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=C
+    ports:
+      - 15432:5432
+    volumes:
+#      - postgres15-db-volume:/var/lib/postgresql/data
+      - /home/work/db/postgres15:/var/lib/postgresql/data

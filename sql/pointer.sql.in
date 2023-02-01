@@ -1,0 +1,2 @@
+INSERT INTO pointer(id,parent_id,child_id) VALUES 
+    (%ID%,%PARENT_ID%,%CHILD_ID%);
